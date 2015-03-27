@@ -1,0 +1,12 @@
+---
+- name: Rebooting server if pending
+  shell: reboot removes=/var/run/reboot-required
+  register: reboot
+
+- name: Waiting until boot is done
+  wait_for: host={{ip_to_probe}} port={{port_to_probe}} delay={{delay_before_probe}} timeout={{probe_timeout}}
+  connection: local
+  sudo: false
+  when: reboot|changed or force_reboot
+  changed_when: True
+

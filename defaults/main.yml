@@ -1,0 +1,6 @@
+---
+ip_to_probe: "{{inventory_hostname}}"
+port_to_probe: 22
+delay_before_probe: 10
+probe_timeout: 70
+force_reboot: False
