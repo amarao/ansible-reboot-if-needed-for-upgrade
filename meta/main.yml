@@ -3,7 +3,7 @@ galaxy_info:
   author: George Shuklin
   description: Reboots if reboot is pending after apt-get upgrade (dist-upgrade) and waits until host  returns back online.
   license: BSD
-  min_ansible_version: 1.3
+  min_ansible_version: 1.9
   platforms:
   - name: Ubuntu
     versions:
