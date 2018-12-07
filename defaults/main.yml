@@ -1,5 +1,5 @@
 ---
-ip_to_probe: "{{ansible_default_ipv4['address']}}"
+ip_to_probe: "{{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses) }}"
 port_to_probe: 22
 delay_before_probe: 10
 probe_timeout: 70
