@@ -1,8 +1,28 @@
 ---
 ip_to_probe: "{{ ansible_default_ipv4.address|default(ansible_all_ipv4_addresses[0]) }}"
+# ip address to probe
+
 port_to_probe: 22
+# tcp port to probe
+
 delay_before_probe: 10
+# how long to wait before first probe (seconds)
+
 probe_timeout: 70
+# how long wait for server to reply (total time is delay_before_probe + probe_timeout), seconds
+# Never set it to zero, as you can get false positive from a server which hasn't rebooted yet
+
 reboot_delay: 2
+# how long to wait before reboot the server (we need time to close connection after issuing reboot command, so 0 is a bad idea)
+
 force_reboot: false
+# always reboot, ignore the flag
+
 reboot_flag: /var/run/reboot-required
+# location of reboot flag
+
+skip_pre_reboot_check: false
+# do not perform pre-reboot check for port reachability
+
+pre_reboot_timeout: 10
+# how long to wait for port in pre-reboot check

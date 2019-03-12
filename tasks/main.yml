@@ -1,4 +1,8 @@
 ---
+- name: reboot | Pre-reboot check if we can reach polling port
+  wait_for: host={{ ip_to_probe }} port={{ port_to_probe }} delay=0 timeout={{ pre_reboot_timeout }}
+  when: not skip_pre_reboot_check
+
 - name: reboot | Reboot server if required
   shell: "nohup bash -c 'sleep {{ reboot_delay }}; reboot' &"
   args:
