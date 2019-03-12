@@ -5,3 +5,4 @@ delay_before_probe: 10
 probe_timeout: 70
 reboot_delay: 2
 force_reboot: false
+reboot_flag: /var/run/reboot-required

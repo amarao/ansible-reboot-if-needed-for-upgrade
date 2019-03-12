@@ -2,7 +2,7 @@
 - name: reboot | Reboot server if required
   shell: "nohup bash -c 'sleep {{ reboot_delay }}; reboot' &"
   args:
-   removes: /var/run/reboot-required
+   removes: '{{ omit if force_reboot else reboot_flag }}'
   register: reboot
   become: true
 
